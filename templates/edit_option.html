@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary_edit_option</title>
+</head>
+
+<body>
+    <h1>日記Webアプリ📖</h1>
+    <h2>日記の編集✏️</h2>
+    <p>作成した日記の編集を行うことができます。編集したい日記の右にある編集ボタンから編集できます。</p>
+    <hr>
+    {% if articles == [] %}
+    <div>
+        <p>記事はまだありません。</p>
+    </div>
+    {% else %}
+    {% for article in articles %}
+    <h3>{{ article.title }}</h3>
+    <p>{{ article.created_at }}</p>
+    <a href="{{ url_for('edit', article_id=article.id) }}">編集</a>
+    <hr>
+    <!--<a href="{{ url_for('edit', article_id=article.id) }}">編集</a> -->
+    <!--二重括弧内部について、''の中は関数名、,以降はその関数に代入すべき引数を指定している-->
+    {% endfor %}
+    {% endif %}
+    <br>
+
+    <div><a href="{{ url_for('admin') }}">管理者ページ</a></div>
+    <div><a href="{{ url_for('index') }}">トップページ</a></div>
+
+</body>
+
+</html>

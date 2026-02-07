@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary_create</title>
+</head>
+
+<body>
+    <h1>日記Webアプリ📖</h1>
+    <h2>日記の新規作成➕️</h2>
+    <form method="POST" enctype="multipart/form-data"> <!-- <form>　= 入力されたデータを、指定したURLに、指定した方法で送信する箱 -->
+        <div>
+            <label for="title">タイトル</label> <!--idとforの中身を同じにすることで、inputとlabelタグが結びつく-->
+            <div><input type="text" id="title" name="title"></div> <!--nameは入力された情報をpythonが認識するための変数名-->
+        </div>
+        <div>
+            <label for="body">本文</label>
+        </div>
+        <div>
+            <textarea id="body" name="body" rows="10" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="file_upload">画像をアップロード</label>
+            <div><input type="file" name="img" id="file_upload"></div>
+        </div>
+        <br>
+        <input type="submit" value="投稿"> <!--投稿ボタン-->
+    </form>
+</body>
+
+</html>

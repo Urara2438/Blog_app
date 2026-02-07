@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary_delete</title>
+</head>
+
+<body>
+    <h1>日記Webアプリ📖</h1>
+    <h2>日記の削除🗑️</h2>
+    <p>ここでは作成した日記の削除を行うことができます。削除したい日記の右にある削除ボタンから削除できます。</p>
+    <table border="3">
+        <tr>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>作成または更新日時</th>
+        </tr>
+        {% if articles == [] %}
+        <tr>
+            <td colspan="4">記事はまだありません。</td>
+        </tr>
+        {% else %}
+        {% for article in articles %}
+        <tr>
+            <td>{{ article.title }}</td>
+            <td>{{ article.body }}</td>
+            <td>{{ article.created_at }}</td>
+            <td><a href="{{ url_for('delete', article_id=article.id) }}">削除</a></td>
+
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    <div><a href="{{ url_for('admin') }}">管理者ページ</a></div>
+    <div><a href="{{ url_for('index') }}">トップページ</a></div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary_admin</title>
+</head>
+
+<body>
+    <h1>日記Webアプリ📖</h1>
+    <h2>管理者ページ⚙️</h2>
+    <p>記事の新規作成や記事の編集および削除を行うことができます。</p>
+    <div><a href="{{ url_for('create') }}">日記の新規作成➕️</a></div>
+    <div><a href="{{ url_for('edit_option') }}">日記の編集✏️</a></div>
+    <div><a href="{{ url_for('delete_option') }}">日記の削除🗑️</a></div>
+    <div><a href="{{ url_for('index') }}">トップページ</a></div>
+    <br>
+    <div><a href="{{ url_for('logout') }}">ログアウト🔓</a></div>
+</body>
+
+</html>

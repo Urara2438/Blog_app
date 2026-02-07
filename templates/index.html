@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary_index</title>
+</head>
+
+<body>
+    <h1>日記Webアプリ📖</h1>
+    <h2>トップページ</h2>
+    <p>過去に投稿された日記の一覧です。本文の閲覧は詳細から行うことができます。
+        日記の新規作成や編集および更新は、管理者ページから行えます。</p>
+    <hr>
+    {% if articles == [] %}
+    <div>
+        <p>記事はまだありません。</p>
+    </div>
+    {% else %}
+    {% for article in articles %}
+    <h3>{{ article.title }}</h3>
+    <p>{{ article.created_at }}</p>
+    {% if article.img_name %}
+    <img src="{{ url_for('static', filename='img/' ~ article.img_name) }}" width="200">
+    {% else %}
+    画像なし
+    {% endif %}
+    <div><a href="{{ url_for('readmore', article_id = article.id) }}">詳細</a></div>
+    <hr>
+    <!--<a href="{{ url_for('edit', article_id=article.id) }}">編集</a> -->
+    <!--二重括弧内部について、''の中は関数名、,以降はその関数に代入すべき引数を指定している-->
+    {% endfor %}
+    {% endif %}
+    <br>
+    <div><a href="{{ url_for('signup') }}">サインアップ👤➕</a></div> <!--('')内部はPython上での関数名-->
+    <div><a href="{{ url_for('login') }}">ログイン🔑</a></div>
+</body>
+
+</html>
