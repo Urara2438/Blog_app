@@ -1,67 +1,40 @@
-📔 日記Webアプリ（Flask × PostgreSQL）
+⚪️ タイトル：日記Webアプリ
+  Python，FlaskおよびPostgreSQLを使用して作成したシンプルな日記投稿アプリです．
+  ログイン機能を実装しており，管理者のみが日記の作成・編集・削除を行えるようになっています．
+  また，画像アップロード機能にも対応しています．
 
-Flask と PostgreSQL を使用して作成した、シンプルな日記投稿アプリです。
-ログイン機能を実装し、管理者のみが日記の作成・編集・削除を行えるようになっています。
-画像アップロード機能にも対応しています。
+⚪️ 操作画面
+  トップページ：日記のタイトル一覧を表示
+  ログイン画面：ログイン
+  サインアップ画面：サインアップ
+  管理者ページ：日記の新規作成，編集，削除
+  日記詳細ページ：本文と画像の表示
 
-🔥 デモ画面
+⚪️ 使用技術
 
-トップページ：日記一覧を表示
+  Python
+  Flask
+  Flask-SQLAlchemy
+  Flask-Migrate（Alembic）
+  PostgreSQL
+  HTML
 
-ログイン画面：管理者ログイン
+⚪️ データベース設計
+  usersテーブル
+  カラム名	型	説明
+  id	integer	主キー
+  user_name	varchar(50)	ユーザー名
+  password	varchar(500)	ハッシュ化されたパスワード
+  
+  article テーブル
+  カラム名	型	説明
+  id	integer	主キー
+  title	varchar(50)	タイトル
+  body	varchar(5000)	本文
+  created_at	timestamp	作成日時
+  img_name	varchar(100)	画像ファイル名
 
-管理者ページ：日記の新規作成 / 編集 / 削除
-
-日記詳細ページ：本文と画像の表示
-
-※ ローカル環境（http://127.0.0.1:5000）で動作確認
-
-📌 主な機能
-
-✅ 日記一覧表示（トップページ）
-
-✅ 日記詳細表示
-
-✅ ログイン機能（管理者のみ操作可能）
-
-✅ 日記の新規作成
-
-✅ 日記の編集
-
-✅ 日記の削除
-
-✅ 画像アップロード機能
-
-✅ PostgreSQL によるデータ永続化
-
-🛠 使用技術
-
-Python
-
-Flask
-
-Flask-SQLAlchemy
-
-Flask-Migrate（Alembic）
-
-PostgreSQL
-
-HTML / CSS
-
-🗄 データベース設計
-users テーブル
-カラム名	型	説明
-id	integer	主キー
-user_name	varchar(50)	ユーザー名
-password	varchar(500)	ハッシュ化されたパスワード
-article テーブル
-カラム名	型	説明
-id	integer	主キー
-title	varchar(50)	タイトル
-body	varchar(5000)	本文
-created_at	timestamp	作成日時
-img_name	varchar(100)	画像ファイル名
-⚙️ 環境構築
+⚪️ 環境構築
 ① リポジトリをクローン
 git clone https://github.com/yourname/flask-diary-app.git
 cd flask-diary-app
